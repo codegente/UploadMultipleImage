@@ -143,10 +143,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           this.pathList = intent.getExtras().getStringArrayList(PickImageActivity.KEY_DATA_RESULT);
           if (this.pathList != null && !this.pathList.isEmpty()) {
               StringBuilder sb=new StringBuilder("");
+              
+                   encodedImageList.clear();
+
+              
               for(int i=0;i<pathList.size();i++) {
 
-                  encodedImageList.clear();
-
+             
                   Bitmap bitmap = null;
                   try {
                       bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),  Uri.fromFile(new File(pathList.get(i))));
